@@ -7,7 +7,6 @@ set $term --no-startup-id kitty
 set $mod Mod4
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
-set $lock --no-startup-id bash /home/cachopa/.config/i3/i3lock/matrixlock.sh
 set $suspend sudo systemctl suspend
 set $hibernate sudo -A systemctl hibernate
 
@@ -27,10 +26,10 @@ bindsym $mod+Shift+m exec --no-startup-id kitty -e cmatrix
 bindsym $mod+Shift+n exec --no-startup-id kitty -e btm -c
 
 # wallpaper
-exec_always --no-startup-id feh --bg-scale /home/cachopa/walls/1.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/walls/1.jpg
 
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id polybar -q main -c $HOME/.config/polybar/config.ini 
 
 # autotiling
 exec_always --no-startup-id autotiling
@@ -52,13 +51,6 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -72,13 +64,9 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh 
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/theme.rasi
+bindsym $mod+Shift+p exec --no-startup-id bash ~/.config/rofi/powermenu.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -156,10 +144,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # i3lock
-bindsym $mod+Shift+o workspace number $ws7, exec $lock, fullscreen toggle
-
-# autolock
-exec_always --no-startup-id xautolock -time 5 -locker '/home/cachopá/.config/i3/i3lock/matrixlock.sh'
+bindsym $mod+Shift+o exec --no-startup-id i3lock
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -223,10 +208,9 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id picom --config /home/cachopa/.config/picom/picom.conf
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
+# Sreen brightness controls TODO:
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /home/cachopa/.touchpad/toggletouchpad.sh # toggle touchpad
 
