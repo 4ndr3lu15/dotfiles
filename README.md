@@ -32,3 +32,13 @@ sudo usermod -aG video $USER
 ## Polybar Config
 
 ## Neovim Config
+
+Go to $HOME/.config/nvim/lua/cachopa/packer.lua and:
+```bash
+:so
+:PackerSync
+```
+And then:
+```bash
+:Copilot setup
+```

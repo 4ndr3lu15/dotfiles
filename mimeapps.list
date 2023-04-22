@@ -1,0 +1,10 @@
+[Default Applications]
+x-scheme-handler/https=re.sonny.Junction.desktop
+x-scheme-handler/http=re.sonny.Junction.desktop
+text/plain=userapp-kitty -e nvim %f-BFWB31.desktop
+
+[Added Associations]
+text/plain=userapp-kitty -e nvim %f-BFWB31.desktop;
+application/x-shellscript=userapp-kitty -e nvim %f-BFWB31.desktop;nvim.desktop;
+text/x-csrc=userapp-kitty -e nvim %f-BFWB31.desktop;
+image/png=com.google.Chrome.desktop;feh.desktop;
