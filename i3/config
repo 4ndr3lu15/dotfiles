@@ -26,10 +26,10 @@ bindsym $mod+Shift+m exec --no-startup-id kitty -e cmatrix
 bindsym $mod+Shift+n exec --no-startup-id kitty -e btm -c
 
 # wallpaper
-exec_always --no-startup-id feh --bg-scale $HOME/walls/1.jpg
+exec --no-startup-id feh --bg-scale $HOME/walls/1.jpg
 
 # polybar
-exec_always --no-startup-id polybar -q main -c $HOME/.config/polybar/config.ini 
+exec --no-startup-id polybar -q main -c $HOME/.config/polybar/config.ini
 
 # autotiling
 exec_always --no-startup-id autotiling
