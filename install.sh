@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sudo pacman -S dhcpcd iwd vlc firefox neovim kitty polybar flameshot cmatrix bottom redshift rofi picom feh xclip tree nodejs npm discord python-pip thunar pipewire-pulse pavucontrol tmux
+#sudo pacman -S dhcpcd iwd vlc firefox neovim kitty polybar flameshot cmatrix bottom redshift rofi picom feh xclip tree nodejs npm discord python-pip thunar pipewire-pulse pavucontrol tmux zsh
 
 #yay -S autotiling nvim-packer-git ly
 

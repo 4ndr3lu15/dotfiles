@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp -r i3 kitty nvim picom polybar rofi eduroam $HOME/.config
+cp -r i3 kitty nvim picom polybar rofi $HOME/.config
 cp mimeapps.list $HOME/.config
 
 if [ ! -e /etc/modprobe.d/nobeep.conf ]; then
