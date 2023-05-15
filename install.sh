@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#sudo pacman -S dhcpcd iwd vlc firefox neovim kitty polybar flameshot cmatrix bottom redshift rofi picom feh xclip tree nodejs npm discord python-pip thunar pipewire-pulse pavucontrol tmux zsh
+sudo pacman -S dhcpcd iwd vlc firefox neovim kitty polybar flameshot cmatrix bottom redshift rofi picom feh xclip tree nodejs npm discord python-pip thunar pipewire-pulse pavucontrol tmux zsh docker
 
-#yay -S autotiling nvim-packer-git ly
+yay -S autotiling nvim-packer-git ly
 
-#sudo rm /etc/systemd/system/display-manager.service
+sudo rm /etc/systemd/system/display-manager.service
 
-#sudo systemctl enable ly
+sudo systemctl enable ly
 
 flatpak install flathub re.sonny.Junction
 flatpak install flathub com.google.Chrome
